@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+
+html {
+    scroll-behavior: smooth;
+}
+@keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+    display: inline-flex;
+    min-width: 200%;
+    animation: marquee 20s linear infinite;
+    align-items:center;
+}
