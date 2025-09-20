@@ -68,3 +68,15 @@ html {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to right, #0c63ac, #d1c92f);
 }
+
+#typed::after {
+  content: "|";
+  animation: blink 0.7s infinite;
+}
+#typed.finished::after {
+  content: ""; 
+  animation: none;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
