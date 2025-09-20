@@ -14,3 +14,57 @@ html {
     animation: marquee 20s linear infinite;
     align-items:center;
 }
+
+
+@keyframes gradient-x {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 5s ease infinite;
+}
+
+#backToTop {
+    position: fixed;
+    z-index: 50;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 1.25rem;
+    bottom: 30px;
+    right: 20px;
+    color: #5c058b;
+    font-weight: bold;
+}
+
+#backToTop::before {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: conic-gradient(var(--primary, #ad46ff) calc(var(--progress, 0) * 100%), transparent 0);
+    -webkit-mask: 
+        radial-gradient(farthest-side, transparent calc(100% - 4px), rgb(232, 201, 201) 0);
+            mask: 
+        radial-gradient(farthest-side, transparent calc(100% - 4px), rgb(250, 197, 197) 0);
+}
+
+/* Scrollbar مخصص */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 8px; /* عرض الـ scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; /* الخلفية */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #0f7fd9, #f3e53d); /* ألوان موقعك */
+  border-radius: 9999px; /* شكل دائري */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to right, #0c63ac, #d1c92f);
+}
