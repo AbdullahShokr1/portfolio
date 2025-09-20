@@ -303,6 +303,9 @@
   .mx-auto {
     margin-inline: auto;
   }
+  .mt-0 {
+    margin-top: calc(var(--spacing) * 0);
+  }
   .mt-3 {
     margin-top: calc(var(--spacing) * 3);
   }
@@ -408,11 +411,20 @@
   .h-screen {
     height: 100vh;
   }
+  .min-h-screen {
+    min-height: 100vh;
+  }
   .w-1 {
     width: calc(var(--spacing) * 1);
   }
   .w-1\/2 {
     width: calc(1/2 * 100%);
+  }
+  .w-2 {
+    width: calc(var(--spacing) * 2);
+  }
+  .w-2\/3 {
+    width: calc(2/3 * 100%);
   }
   .w-3 {
     width: calc(var(--spacing) * 3);
@@ -441,14 +453,14 @@
   .w-20 {
     width: calc(var(--spacing) * 20);
   }
+  .w-48 {
+    width: calc(var(--spacing) * 48);
+  }
   .w-64 {
     width: calc(var(--spacing) * 64);
   }
   .w-72 {
     width: calc(var(--spacing) * 72);
-  }
-  .w-80 {
-    width: calc(var(--spacing) * 80);
   }
   .w-full {
     width: 100%;
@@ -525,6 +537,9 @@
   }
   .flex-col {
     flex-direction: column;
+  }
+  .flex-col-reverse {
+    flex-direction: column-reverse;
   }
   .flex-wrap {
     flex-wrap: wrap;
@@ -702,14 +717,32 @@
   .border-yellow-500 {
     border-color: var(--color-yellow-500);
   }
+  .bg-\[\#\#5c058b\] {
+    background-color: ##5c058b;
+  }
   .bg-\[\#1a062b\] {
     background-color: #1a062b;
+  }
+  .bg-\[\#2a0a3a\] {
+    background-color: #2a0a3a;
   }
   .bg-\[\#2d0145\] {
     background-color: #2d0145;
   }
+  .bg-\[\#5c058b\] {
+    background-color: #5c058b;
+  }
+  .bg-\[\#12021f\] {
+    background-color: #12021f;
+  }
   .bg-\[\#27043f\] {
     background-color: #27043f;
+  }
+  .bg-\[bg-\[\#2a0a3a\]\] {
+    background-color: bg-[#2a0a3a];
+  }
+  .bg-\[gray-500\] {
+    background-color: gray-500;
   }
   .bg-black {
     background-color: var(--color-black);
@@ -1551,6 +1584,11 @@
       width: calc(2/3 * 100%);
     }
   }
+  .sm\:w-60 {
+    @media (width >= 40rem) {
+      width: calc(var(--spacing) * 60);
+    }
+  }
   .sm\:grid-cols-2 {
     @media (width >= 40rem) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1559,6 +1597,30 @@
   .sm\:flex-row {
     @media (width >= 40rem) {
       flex-direction: row;
+    }
+  }
+  .sm\:text-2xl {
+    @media (width >= 40rem) {
+      font-size: var(--text-2xl);
+      line-height: var(--tw-leading, var(--text-2xl--line-height));
+    }
+  }
+  .sm\:text-3xl {
+    @media (width >= 40rem) {
+      font-size: var(--text-3xl);
+      line-height: var(--tw-leading, var(--text-3xl--line-height));
+    }
+  }
+  .sm\:text-4xl {
+    @media (width >= 40rem) {
+      font-size: var(--text-4xl);
+      line-height: var(--tw-leading, var(--text-4xl--line-height));
+    }
+  }
+  .sm\:text-base {
+    @media (width >= 40rem) {
+      font-size: var(--text-base);
+      line-height: var(--tw-leading, var(--text-base--line-height));
     }
   }
   .md\:flex {
@@ -1761,6 +1823,19 @@ html {
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to right, #0c63ac, #d1c92f);
+}
+#typed::after {
+  content: "|";
+  animation: blink 0.7s infinite;
+}
+#typed.finished::after {
+  content: "";
+  animation: none;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
 }
 @property --tw-translate-x {
   syntax: "*";
